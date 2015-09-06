@@ -1,4 +1,4 @@
-﻿{
+{
   "webroot": "wwwroot",
   "userSecretsId": "aspnet5-Bagels-c43ad69e-b1fc-482a-8487-9f1d50c06fef",
   "version": "1.0.0-*",
@@ -25,8 +25,11 @@
     "Microsoft.Framework.Configuration.UserSecrets": "1.0.0-beta7",
     "Microsoft.Framework.Logging": "1.0.0-beta7",
     "Microsoft.Framework.Logging.Console": "1.0.0-beta7",
-    "Microsoft.Framework.Logging.Debug" : "1.0.0-beta7",
-    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta7"
+    "Microsoft.Framework.Logging.Debug": "1.0.0-beta7",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta7",
+    "Serilog": "1.5.10",
+    "Serilog.Framework.Logging": "1.0.0-beta7-10051",
+    "Serilog.Sinks.Seq": "1.5.17"
   },
 
   "commands": {
@@ -35,8 +38,10 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": {
+      "dependencies": {
+      }
+    }
   },
 
   "exclude": [
