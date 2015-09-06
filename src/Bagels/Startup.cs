@@ -12,6 +12,9 @@ using Microsoft.Framework.Logging;
 using Bagels.Models;
 using Bagels.Services;
 using Serilog;
+using InfluxDB.LineProtocol;
+using System;
+using System.Collections.Generic;
 
 namespace Bagels
 {
@@ -21,11 +24,18 @@ namespace Bagels
         {
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
+                .Enrich.WithMachineName()
                 .WriteTo.Console()
                 .WriteTo.Seq("http://localhost:5341")
                 .CreateLogger();
 
             Log.Information("Starting up");
+
+            Metrics.Collector = new CollectorConfiguration()
+                .Batch.AtInterval(TimeSpan.FromSeconds(5))
+                .Tag.With("host", Environment.GetEnvironmentVariable("COMPUTERNAME"))
+                .WriteTo.InfluxDB("http://192.168.99.100:8086", "data")
+                .CreateCollector();
 
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
@@ -91,6 +101,17 @@ namespace Bagels
             loggerFactory.AddSerilog();
 
             // Configure the HTTP request pipeline.
+
+            app.Use(async (context, next) =>
+            {
+                using (Metrics.Time("http_request", new Dictionary<string, string> {
+                    { "method", context.Request.Method },
+                    { "path", context.Request.Path }
+                }))
+                {
+                    await next();
+                }
+            });
 
             // Add the following to the request pipeline only in development environment.
             if (env.IsDevelopment())

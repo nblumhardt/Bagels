@@ -131,6 +131,25 @@
           "lib/net45/EntityFramework.SqlServer.dll": {}
         }
       },
+      "InfluxDB.LineProtocol/1.0.0-beta-10009": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "Microsoft.CSharp",
+          "mscorlib",
+          "System",
+          "System.Collections",
+          "System.Core",
+          "System.IO",
+          "System.Net.Http",
+          "System.Runtime"
+        ],
+        "compile": {
+          "lib/dnx451/InfluxDB.LineProtocol.dll": {}
+        },
+        "runtime": {
+          "lib/dnx451/InfluxDB.LineProtocol.dll": {}
+        }
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2063,6 +2082,21 @@
         "repo.json"
       ]
     },
+    "InfluxDB.LineProtocol/1.0.0-beta-10009": {
+      "type": "package",
+      "sha512": "se/9/M6P5S7nNTG+vOqf+mearRm2ksgTUWI3vmWQW6lKmt5JT0vIeURQWDlgcJokQvSoNb3XDqjC/f9RovCTdQ==",
+      "files": [
+        "InfluxDB.LineProtocol.1.0.0-beta-10009.nupkg",
+        "InfluxDB.LineProtocol.1.0.0-beta-10009.nupkg.sha512",
+        "InfluxDB.LineProtocol.nuspec",
+        "lib/dnx451/InfluxDB.LineProtocol.dll",
+        "lib/dnx451/InfluxDB.LineProtocol.xml",
+        "lib/dotnet/InfluxDB.LineProtocol.dll",
+        "lib/dotnet/InfluxDB.LineProtocol.xml",
+        "lib/net45/InfluxDB.LineProtocol.dll",
+        "lib/net45/InfluxDB.LineProtocol.xml"
+      ]
+    },
     "Ix-Async/1.2.5": {
       "type": "package",
       "sha512": "8EXO8q7cpDUH9G2q+UOPOO/6uZ9aN7mx/4xjFIfkp+qLWVJiYuglkRhjY8Ggs2CucXzHR8GHnovJKB5yQoYaJg==",
@@ -3626,6 +3660,7 @@
     "": [
       "EntityFramework.Commands >= 7.0.0-beta7",
       "EntityFramework.SqlServer >= 7.0.0-beta7",
+      "InfluxDB.LineProtocol >= 1.0.0-beta-10009",
       "Microsoft.AspNet.Authentication.Cookies >= 1.0.0-beta7",
       "Microsoft.AspNet.Authentication.Facebook >= 1.0.0-beta7",
       "Microsoft.AspNet.Authentication.Google >= 1.0.0-beta7",
