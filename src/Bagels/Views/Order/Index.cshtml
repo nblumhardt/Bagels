@@ -1,0 +1,62 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNet.Http
+@using Microsoft.AspNet.Http.Authentication
+@using Bagels.ViewModels.Order;
+@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Order Your Breakfast Bagel!";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <h1>Please place your order.</h1>
+            <form method="post" asp-controller="Order" asp-action="Place">
+                <h4>You can order one or two bagels, if you're up to it!</h4>
+                <hr />
+                <div asp-validation-summary="ValidationSummary.All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CustomerName" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="CustomerName" class="form-control" />
+                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemId1" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <select name="ItemId1" class="form-control">
+                            <option></option>
+                            <option value="salmon">Smoked Salmon</option>
+                            <option value="cranberry">Cranberry</option>
+                            <option value="ham">Ham</option>
+                            <option value="plain">Plain</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ItemId2" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <select name="ItemId2" class="form-control">
+                            <option></option>
+                            <option value="salmon">Smoked Salmon</option>
+                            <option value="cranberry">Cranberry</option>
+                            <option value="ham">Ham</option>
+                            <option value="plain">Plain</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default">Order Now</button>
+                    </div>
+                </div>
+            </form>    
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
