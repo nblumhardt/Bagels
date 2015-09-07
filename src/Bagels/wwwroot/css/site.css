@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('/images/bagels.jpg');
+    background-size: cover;
+    color: white;
 }
 
 /* Wrapping element */
@@ -31,4 +34,16 @@ textarea {
     .carousel-caption {
         z-index: 10 !important;
     }
+}
+
+.form-group .col-md-10 {
+    margin-bottom: 10px;
+}
+
+footer {
+    margin-top: 100px;
+}
+
+h1 {
+    margin-top: 40px;
 }

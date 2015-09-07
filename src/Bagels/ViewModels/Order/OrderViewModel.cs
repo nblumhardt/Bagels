@@ -7,10 +7,10 @@ namespace Bagels.ViewModels.Order
         [Display(Name = "Name")]
         public string CustomerName { get; set; }
 
-        [Display(Name = "1")]
+        [Display(Name = "Choice 1")]
         public string ItemId1 { get; set; }
 
-        [Display(Name = "2")]
+        [Display(Name = "Choice 2")]
         public string ItemId2 { get; set; }
     }
 }
