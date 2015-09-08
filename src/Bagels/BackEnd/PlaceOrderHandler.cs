@@ -26,7 +26,7 @@ namespace Bagels.BackEnd
 
             foreach (var bagel in message.ItemIds.GroupBy(i => i))
             {
-                Metrics.Increment("bagels_ordered", bagel.Count(), new Dictionary<string, string>
+                Metrics.Increment("bagel_ordered", bagel.Count(), new Dictionary<string, string>
                 {
                     { "bagel_id", bagel.Key }
                 });
